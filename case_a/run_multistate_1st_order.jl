@@ -135,7 +135,7 @@ function run_multistate_1st_order(aseed)
                 prob_temp = LinearAlgebra.Diagonal(ones(nstates))
                 for tt = TTij[ii,jj + 1]:(-1):(TTij[ii,jj] + 1)
                     prob_right_ttp1[:,:,tt] = prob_temp
-                    prob_temp = prob_temp * F_prob[ii,:,:,tt]
+                    prob_temp = F_prob[ii,:,:,tt] * prob_temp
                     prob_right_tt[:,:,tt] = prob_temp
                 end
                 for a_state in F_sub_states[state_begin,state_end]
